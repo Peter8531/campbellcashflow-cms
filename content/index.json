@@ -1,6 +1,15 @@
 {
   "articles": [
     {
+      "slug": "war-oil-cost-of-living",
+      "topic": "Inflation",
+      "dateLabel": "March 2026",
+      "readTime": "9 min read",
+      "titleMain": "War, Oil and",
+      "titleEmphasis": "Your Cost of Living",
+      "summary": "Conflict in the Middle East rarely stays on the news page. When oil prices spike, it flows through to petrol, groceries and retirement plans. This article explains how war-driven inflation works and what you can do about it."
+    },
+    {
       "slug": "inflation-retirement-planning",
       "topic": "Retirement",
       "dateLabel": "March 2026",
