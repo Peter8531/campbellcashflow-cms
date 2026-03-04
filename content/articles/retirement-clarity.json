@@ -7,14 +7,16 @@
   "titleEmphasis": "Clarity Framework",
   "summary": "Most pre-retirees don't have an income problem. They have a clarity problem. This framework outlines how a structured retirement review is typically approached.",
   "introParagraphs": [
-    "Super balances look reasonable. There may be property or other assets. Income is strong. But the questions keep surfacing:",
-    "Retirement planning is not about chasing more. It is about sequencing decisions correctly and defining what \"enough\" actually means. The following eight steps outline how a structured retirement review is typically approached."
+    "Super balances look reasonable. There may be property or other assets. Income is strong. But the questions keep surfacing:"
   ],
   "introQuestions": [
     "Is it enough?",
     "When can I slow down?",
     "What decisions matter most in the next few years?",
     "Am I taking unnecessary risks?"
+  ],
+  "introClosingParagraphs": [
+    "Retirement planning is not about chasing more. It is about sequencing decisions correctly and defining what \"enough\" actually means. The following eight steps outline how a structured retirement review is typically approached."
   ],
   "steps": [
     {

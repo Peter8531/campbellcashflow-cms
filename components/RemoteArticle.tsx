@@ -12,6 +12,17 @@ import { addPropertyControls, ControlType } from "framer"
 
 type Step = { n: string; title: string; body: string }
 
+type TableColumn = { key: string; label: string }
+type TableRow = Record<string, string>
+type Table = {
+  title?: string
+  subtitle?: string
+  columns: TableColumn[]
+  rows: TableRow[]
+  footnote?: string
+  afterStep: number
+}
+
 type ArticleProps = {
   slug: string
   topic: string
@@ -22,7 +33,10 @@ type ArticleProps = {
   summary: string
   introParagraphs: string[]
   introQuestions: string[]
+  introClosingParagraphs?: string[]
+  sectionLabel?: string
   steps: Step[]
+  table?: Table
   closingQuote: string
   closingAttribution: string
   closingParagraphs: string[]
@@ -454,7 +468,147 @@ function StepBlock({ step, i, m }: { step: Step; i: number; m: boolean }) {
   )
 }
 
+/* ── IllustrationTable ─────────────────────────────────── */
+
+function IllustrationTable({ table, m }: { table: Table; m: boolean }) {
+  const colTemplate = table.columns.map((_, i) =>
+    i === table.columns.length - 1 ? "2fr" : "1fr"
+  ).join(" ")
+
+  return (
+    <div
+      style={{
+        ...box,
+        padding: m ? "20px 0 0" : "28px 0 0",
+      }}
+    >
+      {(table.title || table.subtitle) && (
+        <div style={{ ...box, padding: m ? "0 0 6px 24px" : "0 0 8px 80px" }}>
+          {table.title && (
+            <span
+              style={{
+                fontFamily: sans,
+                fontSize: 11,
+                fontWeight: 500,
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                color: c.gold,
+              }}
+            >
+              {table.title}
+            </span>
+          )}
+          {table.subtitle && (
+            <p
+              style={{
+                fontFamily: serif,
+                fontSize: m ? 16 : 19,
+                color: c.navy,
+                marginTop: 6,
+                marginBottom: 0,
+              }}
+            >
+              {table.subtitle}
+            </p>
+          )}
+        </div>
+      )}
+      <div
+        style={{
+          ...box,
+          background: c.cream,
+          border: "1px solid rgba(201,168,76,0.2)",
+          marginBottom: 4,
+        }}
+      >
+        {/* Header */}
+        <div
+          style={{
+            ...box,
+            display: "grid",
+            gridTemplateColumns: colTemplate,
+            padding: m ? "12px 20px" : "14px 32px",
+            borderBottom: `2px solid ${c.gold}`,
+            background: c.navy,
+          }}
+        >
+          {table.columns.map((col) => (
+            <span
+              key={col.key}
+              style={{
+                fontFamily: sans,
+                fontSize: 10,
+                fontWeight: 500,
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                color: "rgba(201,168,76,0.9)",
+              }}
+            >
+              {col.label}
+            </span>
+          ))}
+        </div>
+        {/* Rows */}
+        {table.rows.map((row, i) => (
+          <div
+            key={i}
+            style={{
+              ...box,
+              display: "grid",
+              gridTemplateColumns: colTemplate,
+              padding: m ? "14px 20px" : "16px 32px",
+              borderBottom:
+                i < table.rows.length - 1
+                  ? "1px solid rgba(201,168,76,0.12)"
+                  : "none",
+              background: i % 2 === 0 ? c.cream : c.white,
+            }}
+          >
+            {table.columns.map((col, ci) => (
+              <span
+                key={col.key}
+                style={{
+                  fontFamily: ci === 1 ? serif : sans,
+                  fontSize:
+                    ci === 0
+                      ? m ? 13 : 14
+                      : ci === 1
+                        ? m ? 15 : 17
+                        : m ? 12 : 13,
+                  fontWeight: ci <= 1 ? 500 : 300,
+                  color: ci === 0 ? c.navy : ci === 1 ? c.gold : c.mid,
+                }}
+              >
+                {row[col.key]}
+              </span>
+            ))}
+          </div>
+        ))}
+        {/* Footnote */}
+        {table.footnote && (
+          <div
+            style={{
+              ...box,
+              padding: m ? "10px 20px" : "12px 32px",
+              borderTop: "1px solid rgba(201,168,76,0.12)",
+            }}
+          >
+            <span style={{ fontFamily: sans, fontSize: 11, color: c.light }}>
+              {table.footnote}
+            </span>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
 /* ── ArticleLayout ─────────────────────────────────────── */
+
+const numberWords = [
+  "One", "Two", "Three", "Four", "Five",
+  "Six", "Seven", "Eight", "Nine", "Ten",
+]
 
 function ArticleLayout(props: ArticleProps) {
   useFonts()
@@ -470,11 +624,30 @@ function ArticleLayout(props: ArticleProps) {
     summary,
     introParagraphs,
     introQuestions,
+    introClosingParagraphs,
+    sectionLabel,
     steps,
+    table,
     closingQuote,
     closingAttribution,
     closingParagraphs,
   } = props
+
+  const defaultLabel =
+    steps.length > 0
+      ? `The ${numberWords[steps.length - 1] ?? steps.length} Steps`
+      : ""
+
+  // Build steps with optional table interleaved
+  const stepsWithTable: React.ReactNode[] = []
+  steps.forEach((s, i) => {
+    stepsWithTable.push(<StepBlock key={s.n} step={s} i={i} m={m} />)
+    if (table && i === table.afterStep) {
+      stepsWithTable.push(
+        <IllustrationTable key="table" table={table} m={m} />
+      )
+    }
+  })
 
   return (
     <div style={{ ...box, overflowX: "hidden", background: c.white }}>
@@ -594,8 +767,9 @@ function ArticleLayout(props: ArticleProps) {
 
       {/* Intro */}
       <div style={{ ...box, padding: m ? "24px 24px 0" : "48px 80px 0" }}>
-        {introParagraphs[0] && (
+        {introParagraphs.map((p, i) => (
           <p
+            key={i}
             style={{
               fontFamily: sans,
               fontSize: m ? 14 : 16,
@@ -605,14 +779,14 @@ function ArticleLayout(props: ArticleProps) {
               marginBottom: 16,
             }}
           >
-            {introParagraphs[0]}
+            {p}
           </p>
-        )}
+        ))}
 
         {introQuestions.length > 0 && (
           <div
             style={{
-              margin: "16px 0 24px",
+              margin: "0 0 24px",
               display: "flex",
               flexDirection: "column",
               gap: 10,
@@ -638,7 +812,7 @@ function ArticleLayout(props: ArticleProps) {
           </div>
         )}
 
-        {introParagraphs.slice(1).map((p, i) => (
+        {introClosingParagraphs?.map((p, i) => (
           <p
             key={i}
             style={{
@@ -647,7 +821,8 @@ function ArticleLayout(props: ArticleProps) {
               fontWeight: 300,
               lineHeight: 1.85,
               color: c.mid,
-              marginBottom: i < introParagraphs.length - 2 ? 16 : 0,
+              marginBottom:
+                i < (introClosingParagraphs?.length ?? 0) - 1 ? 16 : 0,
             }}
           >
             {p}
@@ -681,30 +856,12 @@ function ArticleLayout(props: ArticleProps) {
               flexShrink: 0,
             }}
           />
-          {steps.length > 0 &&
-            `The ${
-              [
-                "One",
-                "Two",
-                "Three",
-                "Four",
-                "Five",
-                "Six",
-                "Seven",
-                "Eight",
-                "Nine",
-                "Ten",
-              ][steps.length - 1] ?? steps.length
-            } Steps`}
+          {sectionLabel ?? defaultLabel}
         </div>
       </div>
 
-      {/* Steps */}
-      <div style={{ ...box }}>
-        {steps.map((s, i) => (
-          <StepBlock key={s.n} step={s} i={i} m={m} />
-        ))}
-      </div>
+      {/* Steps (with optional table interleaved) */}
+      <div style={{ ...box }}>{stepsWithTable}</div>
 
       {/* Closing quote */}
       <div style={{ ...box, padding: m ? "28px 24px 0" : "52px 80px 0" }}>

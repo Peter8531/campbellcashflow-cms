@@ -1,0 +1,22 @@
+{
+  "articles": [
+    {
+      "slug": "inflation-retirement-planning",
+      "topic": "Retirement",
+      "dateLabel": "March 2026",
+      "readTime": "7 min read",
+      "titleMain": "What Inflation Actually Does",
+      "titleEmphasis": "to a Retirement Plan",
+      "summary": "Most retirement projections are built on today's costs. Inflation means those costs will not stay still. Here is what that means in numbers, and what to do about it."
+    },
+    {
+      "slug": "retirement-clarity",
+      "topic": "Retirement",
+      "dateLabel": "February 2026",
+      "readTime": "8 min read",
+      "titleMain": "The Retirement",
+      "titleEmphasis": "Clarity Framework",
+      "summary": "Most pre-retirees don't have an income problem. They have a clarity problem. This framework outlines how a structured retirement review is typically approached."
+    }
+  ]
+}

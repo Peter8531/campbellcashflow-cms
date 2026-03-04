@@ -1,0 +1,82 @@
+{
+  "slug": "inflation-retirement-planning",
+  "topic": "Retirement",
+  "dateLabel": "March 2026",
+  "readTime": "7 min read",
+  "titleMain": "What Inflation Actually Does",
+  "titleEmphasis": "to a Retirement Plan",
+  "summary": "Most retirement projections are built on today's costs. Inflation means those costs will not stay still. Here is what that means in numbers, and what to do about it.",
+  "introParagraphs": [
+    "Inflation is one of those risks that does not announce itself. It does not show up as a market crash or a sudden event. It works quietly, compounding year after year, until the plan that made sense at 50 no longer works at 65.",
+    "For anyone in the decade before retirement, the question is not whether inflation is a problem. It is whether your plan accounts for it. Most do not, at least not explicitly."
+  ],
+  "introQuestions": [
+    "Your budget today is not the budget you will need in 10 or 20 years, even if your lifestyle does not change.",
+    "A plan modelled on today's costs will underestimate what retirement actually requires.",
+    "The gap between assumed costs and real costs is where retirement plans quietly fail."
+  ],
+  "introClosingParagraphs": [
+    "The following covers where inflation sits right now in Australia, what it does to a retirement plan in real numbers, and how to build it into cashflow planning before retirement rather than discovering the problem after it."
+  ],
+  "sectionLabel": "Seven Things Worth Understanding",
+  "steps": [
+    {
+      "n": "01",
+      "title": "The numbers right now",
+      "body": "Annual CPI inflation in Australia sits at around 3.8% as of early 2026, above the Reserve Bank's 2 to 3% target band. Underlying (trimmed mean) inflation is slightly lower at around 3.3%. The RBA does not expect inflation to return to the middle of its target band until well into 2026 at the earliest. In practical terms, prices are still rising faster than the pre-COVID normal, and the assumption that inflation is 'fixed' is not supported by the current data."
+    },
+    {
+      "n": "02",
+      "title": "What 3% actually does to your budget",
+      "body": "At 3% inflation per year, a $100 weekly grocery bill becomes around $134 in 10 years without any change in what you buy. That same 3% applied to your total household spending means your cost of living roughly doubles in about 24 years. For a household spending $120,000 per year today, that is $240,000 per year in real terms by the mid-2040s. The lifestyle has not changed. The price tag has."
+    },
+    {
+      "n": "03",
+      "title": "The retirement illustration",
+      "body": "Consider a retiree with $1,000,000 in super drawing $60,000 per year at retirement. If inflation averages 3% per year, maintaining the same standard of living requires around $80,600 per year after 10 years and around $108,000 per year after 20 years. Unless the portfolio is growing ahead of inflation, withdrawals must increase over time, which accelerates how quickly capital is depleted. The money does not run out because the market collapses. It runs out because the cost of living quietly outpaced the plan."
+    },
+    {
+      "n": "04",
+      "title": "Real returns are what actually matter",
+      "body": "A super fund returning 6% in a year when inflation is 3.5% has delivered a real return of around 2.5%. That is the number that matters for retirement planning, not the headline figure. If a diversified portfolio targets 6.5% per year and you assume 2.75% long-run inflation, you are working with a real return of roughly 3.75% before fees and tax. That margin needs to cover withdrawals, volatility, and longevity. It is thinner than most people assume."
+    },
+    {
+      "n": "05",
+      "title": "Where inflation hits hardest in pre-retirement",
+      "body": "For high-income professionals in the decade before retirement, inflation tends to show up in lifestyle before it shows up in the CPI basket. Insurance premiums, private school fees, home maintenance, travel, and dining out all tend to inflate faster than the headline rate. A cashflow plan built on today's costs without an annual inflation assumption baked in will underestimate what is needed within a few years. The budget that works at 50 does not automatically work at 60."
+    },
+    {
+      "n": "06",
+      "title": "How to build inflation into the plan",
+      "body": "There are three practical adjustments. First, model retirement income in real (inflation-adjusted) terms, not nominal terms. Second, build annual cost increases into your pre-retirement cashflow structure, typically 2.5 to 3% per year on living expenses even when your lifestyle is stable. Third, stress-test your projections against a scenario where inflation averages 1% higher than your base assumption for a sustained period. This is not pessimism. It is the range of outcomes that a structured plan needs to survive."
+    },
+    {
+      "n": "07",
+      "title": "Asset mix and the inflation problem",
+      "body": "Cash and term deposits are unlikely to deliver meaningful real returns over a 20 to 30 year retirement, particularly when inflation is above target. Growth assets including shares and property are volatile year to year but are better placed to outpace inflation over long periods. For most people, the right structure is not a shift to fully defensive assets at retirement but a blend that keeps 3 to 5 years of planned withdrawals in defensive assets for liquidity, while maintaining a meaningful growth allocation to help the portfolio keep pace over time."
+    }
+  ],
+  "table": {
+    "title": "The Numbers",
+    "subtitle": "What $60,000 today needs to become",
+    "afterStep": 1,
+    "columns": [
+      { "key": "year", "label": "Timeframe" },
+      { "key": "cost", "label": "Annual Cost" },
+      { "key": "note", "label": "Note" }
+    ],
+    "rows": [
+      { "year": "Today", "cost": "$60,000", "note": "Base retirement income" },
+      { "year": "10 years", "cost": "$80,600", "note": "At 3% inflation per year" },
+      { "year": "20 years", "cost": "$108,000", "note": "At 3% inflation per year" },
+      { "year": "25 years", "cost": "$125,000", "note": "At 3% inflation per year" }
+    ],
+    "footnote": "Based on $1,000,000 super balance, $60,000 initial annual withdrawal, 3% inflation assumption."
+  },
+  "closingQuote": "Inflation does not derail retirement plans with a single event. It erodes them gradually, year by year, until the numbers that once made sense no longer do. Building it in from the start is not pessimism. It is the difference between a plan that holds and one that quietly falls short.",
+  "closingAttribution": "Peter Campbell",
+  "closingParagraphs": [
+    "The figures used in this article are illustrative only and based on general assumptions about inflation and investment returns. Actual outcomes will vary depending on individual circumstances, portfolio composition, fees, tax, and the actual inflation environment over time.",
+    "If you would like to work through how inflation affects your specific plan, Peter is available for licensed financial advice independently of Campbell Cashflow. Contact him directly to discuss your options."
+  ]
+}
