@@ -5,7 +5,7 @@
 // In Framer's property panel set the url to:
 //   https://raw.githubusercontent.com/Peter8531/campbellcashflow-cms/main/content/index.json
 
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { addPropertyControls, ControlType } from "framer"
 
 /* ── Types ─────────────────────────────────────────────── */
